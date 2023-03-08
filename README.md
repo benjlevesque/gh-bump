@@ -4,7 +4,7 @@
 
 ## Installation
 ```bash
-gh extension install benjlevesque/gh-branch
+gh extension install benjlevesque/gh-bump
 ```
 
 ## Usage
