@@ -1,4 +1,4 @@
-package main
+package gh
 
 import (
 	"bytes"
@@ -8,11 +8,11 @@ import (
 	"strings"
 )
 
-func getLatest() (string, error) {
+func GetLatestRelease() (string, error) {
 	return gh_exec_clean("api", "/repos/{owner}/{repo}/releases/latest", "--jq", ".tag_name")
 }
 
-func newRelease(tag string) (string, error) {
+func CreateRelease(tag string) (string, error) {
 	str, _, err := gh_exec("release", "create", "--generate-notes", tag)
 	return str.String(), err
 
