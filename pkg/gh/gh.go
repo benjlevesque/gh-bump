@@ -11,8 +11,8 @@ func GetLatestRelease() (string, error) {
 	return gh_exec_clean("api", "/repos/{owner}/{repo}/releases/latest", "--jq", ".tag_name")
 }
 
-func CreateRelease(tag string) (string, error) {
-	str, _, err := gh.Exec("release", "create", "--generate-notes", tag)
+func CreateRelease(tag, title string) (string, error) {
+	str, _, err := gh.Exec("release", "create", "--generate-notes", "--title", title, tag)
 	return str.String(), err
 
 }

@@ -9,6 +9,7 @@ import (
 )
 
 var dryRun = flag.Bool("dryRun", false, "")
+var title = flag.String("title", "", "the release title")
 
 func main() {
 	flag.Parse()
@@ -33,7 +34,7 @@ func main() {
 		fmt.Printf("[Dry Run] creating release for %s\n", newTag)
 		return
 	}
-	release, err := gh.CreateRelease(newTag)
+	release, err := gh.CreateRelease(newTag, *title)
 	if err != nil {
 		fmt.Println(err)
 		return
